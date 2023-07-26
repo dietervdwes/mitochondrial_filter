@@ -52,7 +52,7 @@ Navigate to the script directory:
     cd path_to_your_script_directory
 5. Run the script:
     ```bash
-    python script_name.py
+    python mitochondrial_analysis.py
 6. Closing Anaconda
 Once done, you can deactivate the Anaconda environment:
     ```bash
