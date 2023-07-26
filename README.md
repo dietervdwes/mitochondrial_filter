@@ -1,95 +1,80 @@
-Mitochondrial Genome Filtering Script
-Written by: Dieter van der Westhuizen
-Date: 2023
+# Mitochondrial Genome Filtering Script
 
-Description
-This script is designed for filtering mitochondrial genome data in a bioinformatics pipeline. Given an input .txt file containing filter criteria and a .tsv file containing the dataset, the script filters the dataset based on the specified criteria and outputs the filtered data to a new CSV file.
+## Author Information
+**Written by:** Dieter van der Westhuizen  
+**Date:** 2023
 
-Features
-User-friendly interface: Provides a list of available .txt and .tsv files in the current working directory for the user to select.
+## Overview
+This script is designed for filtering mitochondrial genome data in a bioinformatics pipeline. Given an input `.txt` file containing filter criteria and a `.tsv` file containing the dataset, the script filters the dataset based on the specified criteria and outputs the filtered data to a new CSV file.
 
-Separator detection: Dynamically detects the separator used in the input files (such as comma, semicolon, pipe, or tab) for accurate reading.
+## Main Features
 
-Filtering mechanism: Efficiently filters the .tsv dataset using criteria specified in the .txt file and merges additional information from the filter list into the final result.
+- **User-friendly interface**: Provides a list of available `.txt` and `.tsv` files in the current working directory for the user to select.
+- **Separator detection**: Dynamically detects the separator used in the input files (such as comma, semicolon, pipe, or tab) for accurate reading.
+- **Filtering mechanism**: Efficiently filters the `.tsv` dataset using criteria specified in the `.txt` file and merges additional information from the filter list into the final result.
+- **CSV output**: Exports the filtered dataset to a new CSV file, which is named by combining the names of the `.txt` and `.tsv` files.
 
-CSV output: Exports the filtered dataset to a new CSV file, which is named by combining the names of the .txt and .tsv files.
+## Usage Instructions
 
-How to Use
-Place the script in a directory containing your .txt and .tsv files.
+1. Place the script in a directory containing your `.txt` and `.tsv` files.
+2. Run the script. You'll first be prompted to select a `.txt` file containing your filter criteria.
+3. Next, you'll be prompted to select a `.tsv` file containing the dataset.
+4. The script will then detect the separators, filter the dataset, and save the result to a new CSV file in the same directory.
+5. Check the newly generated CSV file for your filtered results.
 
-Run the script. You'll first be prompted to select a .txt file containing your filter criteria:
+## Script Requirements
 
-markdown
-Copy code
-Available TXT files:
-1. criteria.txt
-2. another_criteria.txt
-Select a TXT file by entering the corresponding number:
-Next, you'll be prompted to select a .tsv file containing the dataset:
-markdown
-Copy code
-Available TSV files:
-1. dataset.tsv
-2. another_dataset.tsv
-Select a CSV file by entering the corresponding number:
-The script will then detect the separators, filter the dataset, and save the result to a new CSV file in the same directory.
+- Python environment with the `pandas` library installed.
+- Ensure that the `.txt` file contains a column named "Gene Symbol" and the `.tsv` file has a column named "SYMBOL" for the filtering to work correctly.
 
-Check the newly generated CSV file for your filtered results.
+## Running the Script with Anaconda
 
-Requirements
-Python environment with the pandas library installed.
-Note
-Ensure that the .txt file contains a column named "Gene Symbol" and the .tsv file has a column named "SYMBOL" for the filtering to work correctly.
+### Setting Up Anaconda
 
-Instructions to Run the Script in Anaconda
-1. Install Anaconda
-If you haven't installed Anaconda yet:
+1. If you haven't installed Anaconda yet, download and install it from the [official website](https://www.anaconda.com/products/distribution#download-section).
+2. Open Anaconda Navigator or the Anaconda terminal.
 
-Visit the Anaconda Individual Edition download page.
-Download the appropriate version for your operating system.
-Follow the installation instructions for your platform: Windows, macOS, or Linux.
-2. Create a New Conda Environment (Recommended)
-Although you can use the base environment in Anaconda, it's generally recommended to create a new environment for each project to manage dependencies cleanly.
+### Creating and Activating a New Environment
 
-Open the Anaconda Navigator (a GUI tool included with Anaconda) or the Anaconda prompt/terminal.
+1. Create a new environment with the desired Python version (e.g., `3.8`):  
+    ```bash
+   conda create --name mito_filtering python=3.8
+2. Activate the environment:
+    ```bash
+    conda activate mito_filtering
+3. Installing Dependencies
+Install the required pandas library:
+    ```bash
+    conda install pandas
+4. Running the Script
+Navigate to the script directory:
+    ```bash
+    cd path_to_your_script_directory
+5. Run the script:
+    ```bash
+    python script_name.py
+6. Closing Anaconda
+Once done, you can deactivate the Anaconda environment:
+    ```bash
+    conda deactivate
 
-Create a new environment:
+## Running the Script as a Jupyter Notebook
+###Setting Up Jupyter Notebook in Anaconda
+Ensure you've activated the Anaconda environment where you have the required dependencies installed. If you haven't, refer to the instructions in the "Setting Up Anaconda" and "Creating and Activating a New Environment" sections above.
 
-bash
-Copy code
-conda create --name mito_filtering python=3.8
-Replace mito_filtering with any name you prefer for your environment, and 3.8 with your preferred Python version.
+Install jupyter within the environment:
 
-Activate the new environment:
+    ```bash
+      conda install jupyter
 
-bash
-Copy code
-conda activate mito_filtering
-3. Install Required Libraries
-Your script requires the pandas library. Install it in your activated environment:
+Launch Jupyter Notebook:
 
-bash
-Copy code
-conda install pandas
-4. Navigate to Your Script's Directory
-Change your current directory to where your script is located:
+    ```bash
+    jupyter notebook
 
-bash
-Copy code
-cd path_to_your_script_directory
-Replace path_to_your_script_directory with the path to the directory where your script is located.
-
-5. Run Your Script
-Execute the script with:
-
-bash
-Copy code
-python script_name.py
-Replace script_name.py with the name of your script.
-
-6. Deactivate the Environment (Optional)
-After you're done, you can deactivate the environment:
-
-bash
-Copy code
-conda deactivate
+## Running the Script in the Jupyter Notebook
+You can run each cell by selecting the cell and clicking the "Run" button or by pressing Shift + Enter.
+Make sure you run the cells in order, especially if they have dependencies on previous cells.
+You'll see the outputs (e.g., print statements) right below each cell after you run it.
+If you want to save the outputs, click on "File" and then "Save and Checkpoint".
+Once you're done, you can close the Jupyter Notebook browser tab and stop the Jupyter server in your terminal by pressing Ctrl + C twice.
